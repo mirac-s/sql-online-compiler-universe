@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en"> <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-lang-key="page_title">Gelişmiş Online SQL Editörü</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.32.2/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.32.2/ext-language_tools.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.32.2/mode-sql.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.32.2/theme-monokai.min.js"></script> <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.32.2/theme-chrome.min.js"></script> <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.32.2/theme-sqlserver.min.js"></script> </head>
+<body class="dark-theme"> <div class="container">
+        <h1 data-lang-key="main_heading">Gelişmiş Online SQL Editörü</h1>
+         <p class="warning" data-lang-key="security_warning">
+            <strong>UYARI:</strong> Bu, kişisel kullanım veya demo amaçlı geliştirilmiş bir editördür. Kullanıcıdan alınan SQL sorgularını
+            doğrudan çalıştırmak, yeterli güvenlik önlemleri (giriş doğrulama, yetkilendirme, sorgu analizi,
+            izole ortamlar) olmadan gerçek uygulamalarda <strong>SON DERECE GÜVENLİKSİZDİR</strong>.
+            Bu örnek, bellek içi (in-memory) bir veritabanı kullanır ve sunucu yeniden başlatıldığında sıfırlanır.
+            Güvenlik önlemleri olmadan hassas verilerle <strong>KULLANMAYIN</strong>!
+        </p>
+
+        <div class="button-container">
+             <button id="settings-button" data-lang-key="settings_button">Ayarlar</button>
+             <button id="clear-button" data-lang-key="clear_button">Temizle</button>
+             <button id="run-button" onclick="executeQuery()" data-lang-key="run_button">Çalıştır</button>
+        </div>
+
+        <div class="editor-area">
+             <div id="editor">SELECT * FROM users;</div>
+        </div>
+
+        <div id="results-area">
+            <h2 data-lang-key="results_heading">Sonuçlar</h2>
+            <p data-lang-key="results_placeholder">Sorguyu çalıştırdıktan sonra sonuçlar burada görünecektir.</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        SQL Editör Demo | Python Flask & SQLite | Gelişmiş Özellikler | <a href="https://github.com/mirac-s" target="_blank">GitHub Profilim</a>
+    </div>
+
+    <div id="settings-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2 data-lang-key="settings_heading">Ayarlar</h2>
+
+            <div class="setting-item">
+                <label for="theme-select" data-lang-key="setting_theme">Tema:</label>
+                <select id="theme-select">
+                    <option value="dark" data-lang-key="theme_dark">Koyu</option>
+                    <option value="light" data-lang-key="theme_light">Açık</option>
+                </select>
+            </div>
+
+             <div class="setting-item">
+                <label for="font-size-select" data-lang-key="setting_font_size">Yazı Boyutu:</label>
+                <select id="font-size-select">
+                    <option value="12px">12px</option>
+                    <option value="14px">14px</option>
+                    <option value="16px">16px</option>
+                    <option value="18px">18px</option>
+                     <option value="20px">20px</option>
+                </select>
+            </div>
+
+             <div class="setting-item">
+                <label for="font-family-select" data-lang-key="setting_font_family">Yazı Tipi:</label>
+                <select id="font-family-select">
+                    <option value="Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace">Varsayılan (Monospace)</option>
+                    <option value="Arial, sans-serif">Arial</option>
+                    <option value="'Courier New', monospace">Courier New</option>
+                    <option value="'Lucida Console', Monaco, monospace">Lucida Console</option>
+                </select>
+            </div>
+
+             <div class="setting-item">
+                <label for="language-select" data-lang-key="setting_language">Dil:</label>
+                <select id="language-select">
+                    <option value="en">English</option>
+                    <option value="tr">Türkçe</option>
+                </select>
+            </div>
+
+            <button id="save-settings-button" data-lang-key="settings_save">Ayarları Kaydet</button>
+        </div>
+    </div>
+
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+      </html>
+# Powered by GitHub.com/mirac-s
