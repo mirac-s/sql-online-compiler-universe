@@ -28,7 +28,7 @@ Bu proje, Python Flask backend'i ve Ace Editor entegrasyonlu modern bir frontend
 1.  Bu depoyu klonlayın:
     ```bash
     git clone [https://github.com/mirac-s/sql_editor.git](https://github.com/mirac-s/sql_editor.git)
-    cd sql_editor
+    cd sql-online-compiler-unverse
     ```
     *(Not: Lütfen depoyu kendi GitHub hesabınızda oluşturduktan sonra bu komutu güncelleyin.)*
 
